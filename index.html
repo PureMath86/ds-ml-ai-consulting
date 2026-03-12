@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DS/ML/AI Consulting</title>
+  <meta name="description" content="DS/ML/AI Consulting helps organizations design, build, and deploy practical data science, machine learning, and AI solutions." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #111831;
+      --card: rgba(255,255,255,0.06);
+      --text: #e8ecf7;
+      --muted: #b6bfd8;
+      --accent: #7cc7ff;
+      --accent-2: #8ef0c9;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 50px rgba(0,0,0,0.3);
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,199,255,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(142,240,201,0.10), transparent 24%),
+        linear-gradient(180deg, #09101f 0%, #0b1020 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 1rem;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #05101d;
+      box-shadow: var(--shadow);
+    }
+
+    .button-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .hero {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(124,199,255,0.12);
+      border: 1px solid rgba(124,199,255,0.22);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 0 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-points span::before {
+      content: "•";
+      color: var(--accent-2);
+      margin-right: 0.5rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section {
+      padding: 1.5rem 0 4rem;
+    }
+
+    .section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 70ch;
+      margin-bottom: 1.8rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(124,199,255,0.14);
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .quote {
+      font-size: 1.05rem;
+      color: var(--text);
+      margin: 0 0 1rem;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(124,199,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid rgba(124,199,255,0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 auto 1.2rem;
+    }
+
+    footer {
+      padding: 1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .highlight,
+      .cards,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 4.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">DS<span>/ML/AI</span> Consulting</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#contact" class="button button-secondary">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Practical Data Science, Machine Learning, and AI</div>
+          <h1>Turn data and models into usable business systems.</h1>
+          <p>
+            DS/ML/AI Consulting helps teams move from messy data and vague AI ideas to clear analytics,
+            production-ready models, and measurable business impact.
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#contact">Book a consultation</a>
+            <a class="button button-secondary" href="#services">Explore services</a>
+          </div>
+          <div class="mini-points">
+            <span>Forecasting & predictive modeling</span>
+            <span>LLM & AI workflow design</span>
+            <span>Dashboards, automation, and decision support</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>DS</strong>
+              <span>Analytics, experimentation, forecasting, and decision support</span>
+            </div>
+            <div class="stat">
+              <strong>ML</strong>
+              <span>Model design, feature engineering, validation, and deployment</span>
+            </div>
+            <div class="stat">
+              <strong>AI</strong>
+              <span>LLM workflows, retrieval systems, copilots, and internal tools</span>
+            </div>
+            <div class="stat">
+              <strong>Ops</strong>
+              <span>Repeatable pipelines, monitoring, documentation, and handoff</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <p class="section-lead">
+          Support can range from focused technical problem-solving to end-to-end project delivery.
+          This starter site uses placeholder service language that you can later tailor to your exact niche.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Data Science Strategy</h3>
+            <p>Define the right business questions, metrics, data requirements, and delivery roadmap before investing in model development.</p>
+            <ul>
+              <li>Problem framing</li>
+              <li>KPI and metric design</li>
+              <li>Analytics roadmaps</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Machine Learning Solutions</h3>
+            <p>Build predictive systems that are explainable, testable, and aligned with operational constraints.</p>
+            <ul>
+              <li>Classification and regression</li>
+              <li>Feature engineering and model selection</li>
+              <li>Validation and performance review</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Applied AI Workflows</h3>
+            <p>Design AI-enabled processes that improve knowledge access, automation, and team productivity without unnecessary complexity.</p>
+            <ul>
+              <li>LLM-assisted internal tools</li>
+              <li>Search and retrieval systems</li>
+              <li>Workflow automation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <h2>How projects work</h2>
+        <p class="section-lead">
+          A lightweight, practical process keeps projects moving while reducing rework and ambiguity.
+        </p>
+
+        <div class="process">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Discovery</h3>
+            <p>Clarify the problem, data sources, stakeholders, success criteria, and delivery constraints.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Design</h3>
+            <p>Map the technical approach, architecture, milestones, and implementation plan.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Build</h3>
+            <p>Develop analytics, models, automations, or prototypes with clear iteration points.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">4</div>
+            <h3>Deploy & Handoff</h3>
+            <p>Ship usable deliverables with documentation, monitoring recommendations, and next steps.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section">
+      <div class="container highlight">
+        <div class="card">
+          <h2>Why DS/ML/AI Consulting</h2>
+          <p class="quote">
+            Good consulting work should reduce confusion, not add to it. The goal is practical leverage: better decisions, better systems, and a clean path from idea to implementation.
+          </p>
+          <p>
+            This section is written to sound credible and professional without making unsupported claims. Once you want,
+            you can swap in your actual background, industries served, case studies, and specific tools.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Ideal project types</h3>
+          <ul>
+            <li>Internal analytics tools and reporting systems</li>
+            <li>Predictive modeling and forecasting projects</li>
+            <li>Feature engineering and model improvement work</li>
+            <li>AI copilots, retrieval, and workflow automation</li>
+            <li>Proof-of-concept builds for new data or AI initiatives</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Let’s discuss your project</h2>
+          <p>
+            Tell me what you are building, where the bottleneck is, and what success would look like.
+            I can help scope the problem, evaluate options, and build a practical path forward.
+          </p>
+          <div class="cta-row" style="justify-content:center; margin-bottom:0;">
+            <a class="button button-primary" href="mailto:your-email@example.com">your-email@example.com</a>
+            <a class="button button-secondary" href="https://github.com/your-github-username" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="year"></span> DS/ML/AI Consulting</div>
+      <div>Built as a static site for GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
